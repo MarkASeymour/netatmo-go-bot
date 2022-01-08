@@ -8,4 +8,8 @@ go run main.go
 
 ```
 
-in project root
+in project root.
+
+
+
+Bot will be listening in any server its in for keyword "weather" to display all weather module details.
