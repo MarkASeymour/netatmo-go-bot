@@ -1,10 +1,10 @@
 # netatmo-go-bot
 
-To run, swap personal netatmo and discord details into the appconfig.yml and run go 
+To run, swap personal netatmo and discord details into the appconfig.yml and run 
 
 ```
 
-run main.go
+go run main.go
 
 ```
 
