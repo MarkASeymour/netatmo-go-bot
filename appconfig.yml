@@ -1,0 +1,8 @@
+netatmo:
+  clientID: ""
+  clientSecret: ""
+  username: ""
+  password: ""
+
+discord:
+  token: ""
