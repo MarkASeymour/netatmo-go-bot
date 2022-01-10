@@ -36,6 +36,12 @@ func Main() {
 
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
+	if strings.EqualFold(m.Content, "weather -full") {
+		err, _ := s.ChannelMessageSend(m.ChannelID, WeatherPrintFull())
+		if err != nil {
+			fmt.Println("error sending message: ", err)
+		}
+	}
 	if strings.EqualFold(m.Content, "weather") {
 		err, _ := s.ChannelMessageSend(m.ChannelID, WeatherPrint())
 		if err != nil {
