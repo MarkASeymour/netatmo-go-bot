@@ -52,7 +52,6 @@ func WeatherPrintFull() string {
 				ts, data := module.Data()
 				for dataName, value := range data {
 					if strings.EqualFold(dataName, "Temperature") {
-						fmt.Println("dropped into if-block")
 						v := fmt.Sprintf("%v", value)
 						newVal, err := strconv.ParseFloat(v, 64)
 						if err != nil {
@@ -72,7 +71,7 @@ func WeatherPrintFull() string {
 	return message
 }
 
-func WeatherPrint() string {
+func WeatherPrint() (string, error) {
 
 	n, err := loadConfig()
 
@@ -114,7 +113,6 @@ func WeatherPrint() string {
 				for dataName, value := range data {
 					if (dataName != "WifiStatus") && (dataName != "BatteryPercent") && (dataName != "RFStatus") && (dataName != "AbsolutePressure") {
 						if strings.EqualFold(dataName, "Temperature") {
-							fmt.Println("dropped into if-block")
 							v := fmt.Sprintf("%v", value)
 							newVal, err := strconv.ParseFloat(v, 64)
 							if err != nil {
@@ -139,7 +137,7 @@ func WeatherPrint() string {
 			}
 		}
 	}
-	return message
+	return message, err
 }
 
 func loadConfig() (*netatmo.Client, error) {
