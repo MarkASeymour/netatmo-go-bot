@@ -15,3 +15,10 @@ func TestWeatherPrint(t *testing.T) {
 		t.Error("returns empty string")
 	}
 }
+
+func TestWeatherPrintFull(t *testing.T) {
+	output := handler.WeatherPrintFull()
+	if output == "" {
+		t.Error("returns empty string")
+	}
+}

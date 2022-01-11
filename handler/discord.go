@@ -2,11 +2,12 @@ package handler
 
 import (
 	"fmt"
-	"github.com/spf13/viper"
 	"os"
 	"os/signal"
 	"strings"
 	"syscall"
+
+	"github.com/spf13/viper"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -43,7 +44,8 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 	if strings.EqualFold(m.Content, "weather") {
-		err, _ := s.ChannelMessageSend(m.ChannelID, WeatherPrint())
+		w, _ := WeatherPrint()
+		err, _ := s.ChannelMessageSend(m.ChannelID, w)
 		if err != nil {
 			fmt.Println("error sending message: ", err)
 		}
